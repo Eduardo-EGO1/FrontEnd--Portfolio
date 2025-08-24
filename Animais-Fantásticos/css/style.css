@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%
+}
+
+body {
+    background: #FAF6ed;
+    color: #222;
+    -webkit-font-smoothing: antialiased;
+    display: grid;
+    grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
+}
+
+.menu {
+    grid-column: 3/5;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: #FB5;
+}
+
+.menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.menu li a {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 14px;
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+.grid-section {
+    grid-column: 2 / 4;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 90px 300px 1fr;
+    grid-gap: 20px;
+    margin-bottom: 4rem;
+}
+
+.titulo {
+    grid-column: 1 / 4;
+    font-family: "Playfair Display SC", georgia;
+    font-size: 6rem;
+    line-height: 1;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+
+.animais h2 {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #E54;
+    letter-spacing: .1rem;
+    margin-bottom: 1rem;
+}
+
+.animais h2::before {
+    content: " ";
+    margin-right: 10px;
+    background: #FB5;
+    display: inline-block;
+    width: 2.5rem;
+    height: 0.625rem;
+}
+
+.animais p {
+    font-family: Helvetica, arial;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.animais-lista { /* A lista de imagens dos animais */ 
+    grid-column: 2; /*Colocando na segunda coluna, que tem mais espaço*/
+    overflow-y: scroll; /* Criação de uma barra de scroll quando a imagem ultrapasar a altura definida */
+    height: 370px;
+}
+
+.animais-lista::-webkit-scrollbar { /*estilizando a estrutura da barra scroll*/
+    width: 18px;
+}
+
+.animais-lista::-webkit-scrollbar-thumb { /*estilizando o botão da barra de rolagem */
+    background: #FB5; 
+    border-left: 4px solid #FAF6ed;
+    border-right: 4px solid #FAF6ed;
+}
+
+.animais-lista::-webkit-scrollbar-track { /*estilizando a "trilha" da barra de rolagem */
+    background: #FAF6ed;
+}
+
+.animais-descricao {
+    grid-column: 3; /*definindo a posição do texto na coluna 3 */
+}
+
+.animais-descricao section { /* responsável pelo início e final dos textos basicamente */
+    margin-bottom: 3rem;
+}
+
+.faq-lista {
+    grid-column: 2/4;
+}
+
+.faq-lista dt { /* estilização dos "títulos" da lista */
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: bold;
+    color:#E54;
+    margin-bottom: .5rem; /*espaçamento razoável com o texto descritivo*/
+    margin-top: 2rem; /*espaçamento maior pois se trata de título*/
+}
+
+.faq-lista dt::before { /* criação do "quadrado" de estilização */
+    content: ""; /*é necessário ter algo, mesmo que vazio para criar o bloco*/
+    width: 1.2rem; /* largura do "quadrado" */
+    margin-right: 10px; /*distanciamento do bloco para o texto*/
+    display: inline-block; /*faz com que seja um bloco de linha*/
+    background: #FB5;
+    height: .625rem; /* necessário definir também a altura do bloco por estilização */
+}
+
+#faq dd {
+    font-family: Helvetica, arial;
+    font-size: 1rem;
+    margin-bottom: .5rem;
+    margin-left: 30px; /* por conta que o "quadrado" tem 20px de largura, adiciona então um espaçamento de 10px*/
+}
+
+.mapa {
+    grid-column: 2;
+}
+
+.dados {
+    grid-column: 3;
+}
+
+.dados ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.dados li {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+    color: #222;
+    margin-bottom: 1rem;
+}
+
+.dados li::before {
+    content:"";
+    width: 1.2rem;
+    margin-right: 10px;
+    display: inline-block;
+    background:#FB5;
+    height: .625rem;
+}
+
+.copy {
+    grid-column: 3 / 5;
+    margin-bottom: 2rem;
+    background: #FB5;
+}
+
+.copy p {
+    padding: 20px;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: bold;
+}
+
+footer {
+    display: block;
+}
+
+@media (max-width: 700px) {
+    body {
+        grid-template-columns: 1fr;
+    }
+
+    .menu, .grid-section, .copy {
+        grid-column: 1;
+    }
+
+    .grid-section {
+        grid-template-columns: 100px 1fr;
+        grid-gap: 10px;
+    }
+
+    .animais-lista {
+        grid-column: 1;
+    }
+
+    .faq-lista, .dados, .mapa {
+        grid-column: 1 / 3;
+    }
+
+    .grid-section h1 {
+        font-size: 3rem;
+    }
+
+    .menu {
+        margin-top: 0px;
+    }
+
+    .copy {
+        margin-bottom: 0px;
+    }
+}
